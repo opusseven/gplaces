@@ -19,17 +19,17 @@ export default class QuestionList extends Component {
             <div>
 <h1 class="ttle">DDAY</h1>
   <h2 class="mmle">Enter Your Information</h2>
-  <form class="form" action="#">
-    
+
+  <form method="post" class="form" action="http://localhost:3005/dyno">
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" id="username" tabindex="0" />
+      <input type="text" name="age" id="username" tabindex="0" />
       <label for="username">
         <span data-text="Age">Age</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __second">
-      <input type="email" id="email" tabindex="0" />
+      <input type="text" name="gender" id="email" tabindex="0" />
       <label for="email">
         <span data-text="Gender">Gender</span>
       </label>
@@ -72,16 +72,12 @@ export default class QuestionList extends Component {
 </select>
 </fieldset>
 
-
-
-
-
-
-
     {/* <div class="form-footer">
       <button  onClick={this.toggleDiv}  class="btn">Submit</button>
     </div> */}
+    <input type="submit" value="Submit" />
   </form>
+
 </div>
 
         )}}

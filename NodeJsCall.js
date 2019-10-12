@@ -1,10 +1,17 @@
 const https = require('https');
+//require('dotenv').config()
+//require('dotenv').config()
  
-_EXTERNAL_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.663918,-73.8820044&radius=2500&type=restaurant&keyword=drinks&key=AIzaSyCGjREc2FZhlFgX2iCtdTluvQo4Mu9Tln4';
+//const key = process.env.API_KEY
+//console.log("key",key)
 
+//_EXTERNAL_URL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.663918,-73.8820044&radius=2500&type=restaurant&keyword=drinks&key=AIzaSyCK6gxSNMARSqZ0-sl4em1GS2bBE-21b4E';
+
+//APICALL = 'https://test-proj-heroku.herokuapp.com/api/plans'
+//const candy = `${_EXTERNAL_URL}`
 
 const callExternalApiUsingHttp = (callback) => {
-    https.get(_EXTERNAL_URL, (resp) => {
+    https.get(APICALL, (resp) => {
     let data = '';
     
     // A chunk of data has been recieved.

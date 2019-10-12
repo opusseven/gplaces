@@ -2,6 +2,12 @@ const apiCallFromRequest = require('./Request')
 const apiCallFromNode = require('./NodeJsCall')
 
 const http = require('http')
+// let sourceFile = require('./server.js');
+// var name = sourceFile.name
+// console.log("age",name)
+
+
+
 
 http.createServer((req, res) => {
         if(req.url === "/dday"){
@@ -18,7 +24,7 @@ http.createServer((req, res) => {
             });
         }
         
-        // res.end();
+         //res.end();
 }).listen(3001);
 
 console.log("service running on 3001 port....");
