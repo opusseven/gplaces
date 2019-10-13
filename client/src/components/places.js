@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import QuestionList from './questions'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -22,29 +23,28 @@ export default class Googleplaces extends Component {
 
 
     
-    componentDidUpdate() {
-    fetch("/dday")
-        .then(res => res.json())
-        .then(
-            (result) => {
-            this.setState({ places: result.results })
-             console.log(this.state.places)
+    // componentDidUpdate() {
+    // fetch("/dday")
+    //     .then(res => res.json())
+    //     .then(
+    //         (result) => {
+    //         this.setState({ places: result.results })
+    //          console.log(this.state.places)
             
-
-
-            })
+    //         })
     
-    }
+    // }
 
-    showData = () => {
-        fetch("/dday")
-        .then(res => res.json())
-        .then(
-            (result) => {
-            this.setState({ places: result.results })
-             console.log(this.state.places)
-            })
-        }
+    // showData = () => {
+        
+    //     fetch("/ruckus")
+    //     .then(res => res.json())
+    //     .then(
+    //         (result) => {
+    //         this.setState({ places: result.results })
+    //          console.log(this.state.places)
+    //         })
+    //     }
 
     // this.state.cart.map((item, key) =>
     // <li key={item.id}>{item.name}</li>
@@ -60,12 +60,12 @@ export default class Googleplaces extends Component {
    
       
       return (<div>
-            {items}
-
-            <div class="form-footer">
+           
+      <QuestionList />
+      {/* <div class="form-footer">
       <button  onClick={this.showData}  class="btn">Submit</button>
-    </div>
-            {/* <Cardz name="qweefd" location="Monday" rating="why" /> */}
+      </div> */}
+      {items}
         </div>);
 
         }

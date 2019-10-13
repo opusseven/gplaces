@@ -1,10 +1,7 @@
 const apiCallFromRequest = require('./Request')
 const apiCallFromNode = require('./NodeJsCall')
-
 const http = require('http')
-// let sourceFile = require('./server.js');
-// var name = sourceFile.name
-// console.log("age",name)
+
 
 
 

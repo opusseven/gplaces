@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <AppBar  />
-      <QuestionList />
+     {/* <QuestionList /> */}
       <Places />
       {/* <Card name="qweefd" location="Monday" rating="why"/> */}
       <Grid container justify="center">
