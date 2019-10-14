@@ -57,8 +57,9 @@ export default class QuestionList extends Component {
         console.log(this.state.places)
 
         const items = this.state.places.map((spot, key) =>
-    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total} /> 
+    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total} photos={spot.place_id} /> 
         )
+        console.log(items)
         return(
             <div>
             
@@ -134,6 +135,7 @@ export default class QuestionList extends Component {
   {/* </form> */}
 
 {items}
+ 
 </div>
 
         )}}

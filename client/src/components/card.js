@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -8,6 +8,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import '../card.css'
+import Modal from './modal'
+
+
 
 const useStyles = makeStyles({
     card: {
@@ -27,55 +30,106 @@ const useStyles = makeStyles({
     },
   });
 
-const cardz = ({name,vicinity,rating,price_level,totalratings}) => {   
+// const cardz = ({name,vicinity,rating,price_level,totalratings,photos}) => {   
+
+  
+    
+//     return (
+       
+//         <div>
+            
+//             {/* <p>Woahhhhhh</p>
+//             <p>{name}</p>
+//             <p>{location}</p>
+//             <p>{rating}</p> */}
 
 
+//             <Card className= "bullet">
+//       <CardContent>
+//         <Typography className="bulletin" color="black" gutterBottom>
+//           {name} {photos}
+//         </Typography>
+//         <Typography className="bulletin" variant="h5" component="h2">
+//           {rating}
+//         </Typography>
+//         <Typography className="bulletin" color="black">
+//          Location: {vicinity}
+//         </Typography>
+//         <Typography className="bulletin" variant="body2" component="p">
+//           Price: {price_level}/5
+//           <br />
+//          Total Ratings: {totalratings}
+//         </Typography>
+//       </CardContent>
+//       <CardActions>
+//         <Button onClick={this.showModal} className="bullet explore" size="small">Explore</Button>
+//       </CardActions>
+      
+//     </Card>
+
+
+
+// </div>
+// )
+// }
+export default class Cardz extends Component {
+
+
+  state = { show: false };
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
+  render() {
+    const {name,vicinity,rating,price_level,totalratings,photos} = this.props;
     
     return (
-       
-        <div>
-            
-            {/* <p>Woahhhhhh</p>
-            <p>{name}</p>
-            <p>{location}</p>
-            <p>{rating}</p> */}
-
-
-            <Card className= "bullet">
-      <CardContent>
-        <Typography className="bulletin" color="black" gutterBottom>
-          {name}
+      <div>
+        <Card className= "bullet">
+     <CardContent>
+         <Typography className="bulletin" color="black" gutterBottom>
+           {name} {photos}
         </Typography>
-        <Typography className="bulletin" variant="h5" component="h2">
-          {rating}
-        </Typography>
+         <Typography className="bulletin" variant="h5" component="h2">
+           {rating}
+         </Typography>
         <Typography className="bulletin" color="black">
-         Location: {vicinity}
-        </Typography>
-        <Typography className="bulletin" variant="body2" component="p">
+          Location: {vicinity}
+         </Typography>
+         <Typography className="bulletin" variant="body2" component="p">
           Price: {price_level}/5
-          <br />
+           <br />
          Total Ratings: {totalratings}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button className="bullet explore" size="small">Explore</Button>
-      </CardActions>
-    </Card>
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
+         </Typography>
+       </CardContent>
+       <CardActions>
+       <Modal show={this.state.show} handleClose={this.hideModal}>
+        <p>Pics,info, etc</p>
+        {name}
+        </Modal>
+         <Button onClick={this.showModal} className="bullet explore" size="small">Explore</Button>
+       </CardActions>
+      
+     </Card> 
+      </div>
     )
+  }
 }
 
-export default cardz
+   
+
+
+
+
+
+
+
+
+
+
+//export default cardz
