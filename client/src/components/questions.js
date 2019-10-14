@@ -129,7 +129,7 @@ export default class QuestionList extends Component {
     
     <input type="submit" value="Submit" />
      <div class="form-footer">
-      <button onClick={this.showData}  class="btn">Submmit</button>
+      <button onClick={this.showData}  class="btn">Submit</button>
       </div>
   {/* </form> */}
 

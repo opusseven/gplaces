@@ -41,27 +41,25 @@ app.get('/', (req, res) => {
 //      console.log(location[0].latitude,location[0].longitude)
 //    });
 
-app.get('/ruckus/:info/locale/:area',(req, res) => {
 
-//location = [];
-    geocoder.geocode(req.params.area, function(err, res) {
-        // console.log(res);
+app.get('/ruckus/:info/locale/:area',async(req, res) => {
+
+        location = ''
+       await geocoder.geocode(req.params.area, function(err, res) {
+       
         location = res
         console.log('dddd',location[0].latitude,location[0].longitude)
-        //let LATLON = 'dddddd'
-        
-       // console.log('LATLON IS',location)
-    });
-   
-
-    let LAT = location[0].latitude
-    let LON = location[0].longitude 
-    console.log('LONMATION IS',LAT)
-     console.log('LATLON IS',LON)
+      
+       LAT =location[0].latitude
+       LON = location[0].longitude 
+       console.log(LAT)
+    })
+    
+    
     _EXTERNAL_URL = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${LAT},${LON}&radius=2500&type=${req.params.info}&keyword=${req.params.info}&key=${API_KEY}`;
 
     console.log("reqs",req.params.info,req.params.area)
-    
+        
     request(_EXTERNAL_URL, function (error, response, body) {
         
   if (!error && response.statusCode == 200) {
@@ -69,7 +67,8 @@ app.get('/ruckus/:info/locale/:area',(req, res) => {
     res.send(body) 
   }
 });
-})
+});
+
 
 
 app.post('/dyno',(req, res) => {
