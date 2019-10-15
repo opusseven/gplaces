@@ -55,9 +55,9 @@ export default class QuestionList extends Component {
                  }
     render() {
         console.log(this.state.places)
-
+        // photos={spot.geometry.location["lat"]} photoz={spot.geometry.location["lng"]
         const items = this.state.places.map((spot, key) =>
-    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total} photos={spot.place_id} /> 
+    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total}  /> 
         )
         console.log(items)
         return(
@@ -128,7 +128,7 @@ export default class QuestionList extends Component {
 </fieldset>
 
     
-    <input type="submit" value="Submit" />
+    {/* <input type="submit" value="Submit" /> */}
      <div class="form-footer">
       <button onClick={this.showData}  class="btn">Submit</button>
       </div>

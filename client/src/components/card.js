@@ -9,7 +9,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import '../card.css'
 import Modal from './modal'
-
+// import Googlemap from './googlemap'
+import { withGoogleMap, GoogleMap } from 'react-google-maps';
 
 
 const useStyles = makeStyles({
@@ -86,14 +87,21 @@ export default class Cardz extends Component {
   };
 
   render() {
-    const {name,vicinity,rating,price_level,totalratings,photos} = this.props;
-    
+    const {name,vicinity,rating,price_level,totalratings,photos,photoz} = this.props;
+    const GoogleMapExample = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter = { { lat: 40.756795, lng: -73.954298 } }
+        defaultZoom = { 13 }
+      >
+      </GoogleMap>
+   ));
+
     return (
       <div>
         <Card className= "bullet">
      <CardContent>
          <Typography className="bulletin" color="black" gutterBottom>
-           {name} {photos}
+           {name} {photos} {photoz}
         </Typography>
          <Typography className="bulletin" variant="h5" component="h2">
            {rating}
@@ -108,9 +116,16 @@ export default class Cardz extends Component {
          </Typography>
        </CardContent>
        <CardActions>
-       <Modal show={this.state.show} handleClose={this.hideModal}>
+       <Modal show={this.state.show} handleClose={this.hideModal} >
         <p>Pics,info, etc</p>
         {name}
+     
+        {/* <GoogleMapExample
+          containerElement={ <div style={{ height: `500px`, width: '500px' }} /> }
+          mapElement={ <div style={{ height: `100%` }} /> }
+        /> */}
+
+
         </Modal>
          <Button onClick={this.showModal} className="bullet explore" size="small">Explore</Button>
        </CardActions>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import '../modal.css'
+import Googlemap from './googlemap'
 
  const Modal = ({ handleClose, show, children }) => {
  const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -8,6 +9,7 @@ import '../modal.css'
       <div className={RAT}>
         <section className="modal-main">
           {children}
+         
           <button onClick={handleClose}>close</button>
         </section>
       </div>
