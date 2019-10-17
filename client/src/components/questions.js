@@ -16,9 +16,11 @@ export default class QuestionList extends Component {
                     let showData = this.showData.bind(this)
                 }
 
-                showData = () => {
+                showData = (e) => {
+                  e.preventDefault()
                     let INFO = this.state.criteria
-                    let LOC = this.state.location
+                    let preLOC = this.state.location.replace(/ /g,'')
+                    let LOC = this.state.location.replace(/ /g,'')
                     console.log(this.state.location)
                     console.log(INFO)
                     fetch(`http://localhost:3005/ruckus/${INFO}/locale/${LOC}`)
@@ -57,7 +59,7 @@ export default class QuestionList extends Component {
         console.log(this.state.places)
         // photos={spot.geometry.location["lat"]} photoz={spot.geometry.location["lng"]
         const items = this.state.places.map((spot, key) =>
-    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total}  /> 
+    <Cardz name={spot.name} vicinity={spot.vicinity} rating={spot.rating} price_level={spot.price_level} totalratings={spot.user_ratings_total} /> 
         )
         console.log(items)
         return(
@@ -67,22 +69,23 @@ export default class QuestionList extends Component {
   <h2 class="mmle">Enter Your Information</h2>
 
   {/* <form method="" class="form" action="#"> */}
+  <form>
     <fieldset class="form-fieldset ui-input __first">
-      <input type="text" name="name" id="username" tabindex="0" value={this.state.name} onChange={this.handleNameChange} />
+      <input type="text" name="name" id="username" tabindex="0" value={this.state.name} onChange={this.handleNameChange} required />
       <label for="username">
         <span data-text="Name">Name</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __second">
-      <input type="text" name="gender" id="email" tabindex="0" value={this.state.gender} onChange={this.handleGenderChange} />
+      <input type="text" name="gender" id="email" tabindex="0" value={this.state.gender} onChange={this.handleGenderChange} required />
       <label for="email">
         <span data-text="Gender">Gender</span>
       </label>
     </fieldset>
     
     <fieldset class="form-fieldset ui-input __third">
-      <input type="text" id="new-password" value={this.state.location} onChange={this.handleLocationChange}/>
+      <input type="text" id="new-password" value={this.state.location} onChange={this.handleLocationChange} required/>
       <label for="new-password">
         <span data-text="Desired Destination">Desired Destination</span>
       </label>
@@ -98,11 +101,12 @@ export default class QuestionList extends Component {
 
 
     <fieldset class="form-fieldset ui-input __fourth">
-      <input type="text" id="repeat-new-password" value={this.state.criteria} onChange={this.handleCriteriaChange} />
+      <input type="text" id="repeat-new-password" value={this.state.criteria} onChange={this.handleCriteriaChange} required />
       <label for="repeat-new-password">
         <span data-text="What are you looking for ? (EX. bars,clubs,food,gyms,medical etc.)">Activities</span>
       </label>
     </fieldset>
+  
 
   {/* <fieldset class="form-fieldset ui-input __fourth">   
    <h3>Categories</h3> <select id="new-password">
@@ -132,6 +136,7 @@ export default class QuestionList extends Component {
      <div class="form-footer">
       <button onClick={this.showData}  class="btn">Submit</button>
       </div>
+      </form>
   {/* </form> */}
 
 {items}

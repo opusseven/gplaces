@@ -116,9 +116,9 @@ export default class Cardz extends Component {
          </Typography>
        </CardContent>
        <CardActions>
-       <Modal show={this.state.show} handleClose={this.hideModal} >
+       {/* <Modal show={this.state.show} handleClose={this.hideModal} >
         <p>Pics,info, etc</p>
-        {name}
+        {name} */}
      
         {/* <GoogleMapExample
           containerElement={ <div style={{ height: `500px`, width: '500px' }} /> }
@@ -126,7 +126,7 @@ export default class Cardz extends Component {
         /> */}
 
 
-        </Modal>
+        {/* </Modal> */}
          <Button onClick={this.showModal} className="bullet explore" size="small">Explore</Button>
        </CardActions>
       

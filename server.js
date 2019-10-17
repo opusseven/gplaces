@@ -91,8 +91,14 @@ app.post('/dyno',(req, res) => {
 
 // });
 
-
-app.listen(3005, () => console.log('Gator app listening on port 3005!'));
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static('client/build'))
+  app.get('*',(req,res) => {
+    res.sendfile(path.resolve(__dirname, "client", "build", "index.html"))
+  })
+}
+const PORT = process.env.port || 3005;
+app.listen(PORT, () => console.log('Gator app listening on port 3005!'));
 
 //exports.name = name;
 
